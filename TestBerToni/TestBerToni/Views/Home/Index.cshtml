@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model IEnumerable<TestBerToni.Models.Album>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Albumes</h2>
+        <div>
+            <div class="form-group">
+                <label>Albumes a seleccionar</label>
+                <select id="album" class="form-control">
+                    <option value="">--Seleccione--</option>
+                    @foreach (var item in ViewData["Albums"] as IEnumerable<TestBerToni.Models.Album>)
+                    {
+                        <option value="@item.id">@item.title</option>
+                    }
+
+                </select>
+            </div>
+
+            <input style="margin-bottom:10px;" type="submit" id="visualizar" name="visualizar" value="Visualizar Album" onclick="visualizar()" />
+
+            <div id="tabla" style="display:none;">
+                <h3>Photos</h3>
+                <table id="photos" class="table table-bordered table-striped">
+                    <tr>
+                        <th>Id</th>
+                        <th>thumbnail</th>
+                        <th>Title</th>
+                        <th>Url</th>
+                        <th></th>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="comentarios" style="display:none;">
+                <h3>Comentarios</h3>
+                <ul id="comments">
+                    
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</div>
